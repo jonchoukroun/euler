@@ -18,17 +18,28 @@ def is_palindrome?(n)
   end
 end
 
-def solve
-  (999 * 999).downto(100 * 100) do |i|
-    return i if is_palindrome?(i)
+def approx_root(n)
+  (n ** 0.5).to_i
+end
+
+def factor(n)
+  approx_root(n).downto(1) do |i|
+    return [i, (n / i)] if n % i == 0
   end
 end
 
-# Test cases
-# p is_palindrome?(9009)    # true (even length)
-# p is_palindrome?(90509)   # true (odd length)
-# p is_palindrome?(9509)    # false (even length)
-# p is_palindrome?(95039)   # false (odd length)
+def factor_length(arr, x)
+  factors = arr.map { |n| n.to_s }
+  return factors[0].length == x && factors[1].length == x
+end
+
+def solve
+  (999 * 999).downto(100 * 100) do |i|
+    if is_palindrome?(i)
+      return i if factor_length(factor(i), 3)
+    end
+  end
+end
 
 # Solve problem
 p solve
