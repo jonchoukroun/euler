@@ -7,22 +7,22 @@
 # What is the largest prime factor of the number 600851475143?
 
 
-def is_factor?(n, i)
+def is_factor(n, i)
   n % i == 0
 end
 
-def is_even?(n)
-  is_factor?(n, 2)
+def is_even(n)
+  is_factor(n, 2)
 end
 
 def halve(n)
-  return n / 2 if is_even?(n)
+  return n / 2 if is_even(n)
   return n
 end
 
 def find_factor(n)
   (3..n).step(2) do |i|
-    return i if is_factor?(n, i)
+    return i if is_factor(n, i)
   end
 end
 

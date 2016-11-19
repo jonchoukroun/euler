@@ -7,7 +7,7 @@
 # The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
-def is_palindrome?(n)
+def is_palindrome(n)
   n = n.to_s
   mid = n.length / 2
 
@@ -35,7 +35,7 @@ end
 
 def solve
   (999 * 999).downto(100 * 100) do |i|
-    if is_palindrome?(i)
+    if is_palindrome(i)
       return i if factor_length(factor(i), 3)
     end
   end
