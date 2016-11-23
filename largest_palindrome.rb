@@ -8,14 +8,7 @@
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
 def is_palindrome(n)
-  n = n.to_s
-  mid = n.length / 2
-
-  if n.length % 2 == 0
-    n.slice(0...mid) == n.slice(mid..n.length).reverse!
-  else
-    n.slice(0...mid) == n.slice((mid + 1)..n.length).reverse!
-  end
+  n.to_s == n.to_s.reverse
 end
 
 def approx_root(n)
